@@ -1,0 +1,43 @@
+
+
+Project Running Instructions
+=============================
+
+Welcome to the NetPulse Prediction Project! Follow these simple steps to run the application on your computer.
+
+Step 1: Install Required Software
+---------------------------------
+Before running the project, you need to install the necessary Python libraries. Open your command prompt or terminal and run the following command:
+
+    pip install fastapi uvicorn pandas numpy scikit-learn tensorflow pydantic
+
+Step 2: Train the Machine Learning Model
+----------------------------------------
+The project needs a trained model to make predictions. To train the model using the provided dataset, open your terminal in the project folder and run:
+
+    python train_model.py
+
+Wait for the process to finish. It will read data from the "dataset" folder, train the AI model, and save it inside the "models" folder (you will see a message saying "Model and scaler saved successfully").
+
+*(Note: If the trained model files are already present inside the "models" folder, you can safely skip this step and go directly to Step 3 to start the web server!)*
+
+Step 3: Start the Web Server
+----------------------------
+Once the model is trained, you can start the web application. In your terminal, run the following command:
+
+    python app.py
+
+You will see some text indicating that the server is running (e.g., Uvicorn running on http://0.0.0.0:8000).
+
+Step 4: Open the Web Application
+--------------------------------
+Open your favorite web browser (like Chrome, Firefox, or Edge) and go to the following address:
+
+    http://localhost:8000
+
+You will see the NetPulse website where you can interact with the project and get predictions!
+
+Troubleshooting
+---------------
+- If the website says "Model or Scaler not found", make sure you have successfully completed Step 2 before running Step 3.
+- Ensure that you are running the terminal from inside the project folder where the "app.py" and "train_model.py" files are located.

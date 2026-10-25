@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NetPulse | Advanced Network Analytics</title>
+    <link rel="stylesheet" href="style.css?v=1.2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <main class="container">
+        <header class="header reveal">
+            <h1 class="title">Net<span>Pulse</span></h1>
+            <p class="subtitle">Predictive Network Performance Analysis</p>
+        </header>
+
+        <section class="predictor-card reveal" style="transition-delay: 0.1s">
+            <div class="card-glass">
+                <form id="prediction-form" class="form">
+                    <div class="input-group">
+                        <label for="hour">Hour of Day (0-23) <span class="tooltip-icon" data-tooltip="The specific hour of the day (0-23). Traffic often peaks during specific hours.">ⓘ</span></label>
+                        <input type="number" id="hour" name="hour" placeholder="e.g. 14" required min="0" max="23">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="day_of_week">Day of Week (0-6) <span class="tooltip-icon" data-tooltip="The day of the week, where 0 is Monday and 6 is Sunday.">ⓘ</span></label>
+                        <input type="number" id="day_of_week" name="day_of_week" placeholder="e.g. 2" required min="0" max="6">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="is_weekend">Is Weekend (0 or 1) <span class="tooltip-icon" data-tooltip="A binary indicator: 1 for Saturday/Sunday, and 0 for weekdays.">ⓘ</span></label>
+                        <input type="number" id="is_weekend" name="is_weekend" placeholder="e.g. 0" required min="0" max="1">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="lag_1">Previous Target Value (Lag 1) <span class="tooltip-icon" data-tooltip="The number of dropped packets recorded in the immediately preceding time step.">ⓘ</span></label>
+                        <input type="number" id="lag_1" name="lag_1" placeholder="e.g. 150.5" required step="any">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="lag_2">Target Value 2 Steps Ago (Lag 2) <span class="tooltip-icon" data-tooltip="The number of dropped packets recorded two time steps ago.">ⓘ</span></label>
+                        <input type="number" id="lag_2" name="lag_2" placeholder="e.g. 148.2" required step="any">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="rolling_3">Rolling Avg of Last 3 Targets <span class="tooltip-icon" data-tooltip="The moving average of dropped packets over the last three time steps.">ⓘ</span></label>
+                        <input type="number" id="rolling_3" name="rolling_3" placeholder="e.g. 149.8" required step="any">
+                    </div>
+
+                    <button type="submit" id="predict-btn" class="btn-primary">
+                        <span class="btn-text">Analyze Performance</span>
+                        <div class="loader" id="loader"></div>
+                    </button>
+                </form>
+
+                <div id="result-container" class="result-container hidden">
+                    <div class="result-divider"></div>
+                    <div class="result-content">
+                        <h3>Predicted Loss Profile</h3>
+                        <div class="prediction-value" id="prediction-value">0.00</div>
+                        <p class="prediction-label">Estimated packets dropped per second</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats-section reveal" style="transition-delay: 0.2s">
+            <div class="stat-card">
+                <span class="stat-icon">⚡</span>
+                <h4>Real-time Analysis</h4>
+                <p>Neural inference in milliseconds</p>
+            </div>
+            <div class="stat-card">
+                <span class="stat-icon">🛡️</span>
+                <h4>Optimized</h4>
+                <p>Traffic loss prevention logic</p>
+            </div>
+            <div class="stat-card">
+                <span class="stat-icon">📈</span>
+                <h4>Scalable</h4>
+                <p>Supports high-load simulations</p>
+            </div>
+        </section>
+
+        <footer class="footer reveal" style="transition-delay: 0.3s">
+            <p>&copy; 2026 NetPulse Analytics. All rights reserved.</p>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
